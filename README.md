@@ -44,7 +44,7 @@ Seguindo o raciocínio de **Estórias de Usuário**, a solução foi criar uma A
 * Redução de código com **Lombok**;
 * Foi usado **BCryptPasswordEncoder** do Spring para criptografar as senhas;
 * Obs: O **requisito extra** foi feito.
-* Projeto Frontend:`https://github.com/sidneyfilho/systemusercar_frontend.git`
+* Projeto Frontend: https://github.com/sidneyfilho/systemusercar_frontend
 * Disponibilização da API rodando no host **Heroku**;
 * https://desafio-pitang-java.herokuapp.com/swagger-ui.html
 
