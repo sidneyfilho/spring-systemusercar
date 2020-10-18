@@ -1,0 +1,17 @@
+{
+  "firstName": "Hello",
+  "lastName": "World",
+  "email": "hello3@world.com",
+  "birthday": "1990-05-01",
+  "login": "hello.world",
+  "password": "h3ll0",
+  "phone": "988888888",
+  "cars": [
+    {
+      "year": 2018,
+      "licensePlate": "PDV-0625",
+      "model": "Audi",
+      "color": "White"
+    }
+  ]
+}
