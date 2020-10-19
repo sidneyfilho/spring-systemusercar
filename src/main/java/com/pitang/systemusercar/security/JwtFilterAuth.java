@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -25,20 +26,31 @@ import java.io.IOException;
 public class JwtFilterAuth extends GenericFilterBean {
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
 
 		try {
-			Authentication authentication = AuthService.getAuthentication((HttpServletRequest) request);
+
+			HttpServletRequest request = (HttpServletRequest) req;
+			HttpServletResponse response = (HttpServletResponse) res;
+
+			response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+			response.setHeader("Access-Control-Allow-Credentials", "true");
+			response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+			response.setHeader("Access-Control-Max-Age", "3600");
+			response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me, text/plain, */*");
+
+
+			Authentication authentication = AuthService.getAuthentication(request);
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			filterChain.doFilter(request, response);
 		} catch (SignatureException e){
-			new CustomException("Unauthorized - invalid session", 401).printWriter(response);
+			new CustomException("Unauthorized - invalid session", 401).printWriter(res);
 		} catch (ExpiredJwtException e) {
-			new CustomException("Unauthorized - invalid session", 401).printWriter(response);
+			new CustomException("Unauthorized - invalid session", 401).printWriter(res);
 		} catch (NestedServletException e) {
-			new CustomException("Not found", 404).printWriter(response);
+			new CustomException("Not found", 404).printWriter(res);
 		} catch (CustomException e){
-			new CustomException(e.getMessage(), e.getErrorCode()).printWriter(response);
+			new CustomException(e.getMessage(), e.getErrorCode()).printWriter(res);
 		}
 
 	}
