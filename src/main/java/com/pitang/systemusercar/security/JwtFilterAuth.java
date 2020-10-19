@@ -37,8 +37,7 @@ public class JwtFilterAuth extends GenericFilterBean {
 			response.setHeader("Access-Control-Allow-Credentials", "true");
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 			response.setHeader("Access-Control-Max-Age", "3600");
-			response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me, text/plain, */*");
-
+			response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
 
 			Authentication authentication = AuthService.getAuthentication(request);
 			SecurityContextHolder.getContext().setAuthentication(authentication);
