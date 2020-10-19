@@ -37,10 +37,10 @@ Seguindo o raciocínio de **Estórias de Usuário**, a solução foi criar uma A
 * Servidor **Tomcat** embutido na aplicação;
 * Processo de build via **Maven**;
 * Banco de dados em memória **H2**;
-* Persistência com **JPA/Hibernate** para mapear as entidades e fazer a comunicação com uma base;
+* Persistência com **JPA/Hibernate** para mapear as entidades e fazer a comunicação com o banco;
 * Testes unitários usando **MockMvc**;
 * **Swagger** para simular as requisições dos endpoints;
-* **Exceptions Handle**, exceção customizadas;
+* **Exceptions**, exceção customizadas;
 * Redução de código com **Lombok**;
 * Foi usado **BCryptPasswordEncoder** do Spring para criptografar as senhas;
 * Obs: O **requisito extra** foi feito;
