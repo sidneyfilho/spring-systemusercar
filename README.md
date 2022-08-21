@@ -12,7 +12,7 @@
 
 ## :house: Começando
 
-1. Clone este repo usando: `https://github.com/sidneyfilho/systemusercar.git`
+1. Clone este repo usando: `https://github.com/sidneyfilho/spring-systemusercar.git`
 2. Instale os pacotes usando o gerenciador `mvn clean install`
 3. Entre na pasta Target e rode o comando `java -jar systemcaruser-0.0.1-SNAPSHOT.jar`
 4. Use Swagger para simular as requisições acessando: http://localhost/swagger-ui.html
